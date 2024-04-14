@@ -11,7 +11,9 @@ var osm = L.tileLayer('//tile.openstreetmap.org/{z}/{x}/{y}.png', {
   osm_de = L.tileLayer('//tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
     attribution: '<a target="_blank" href="http://www.openstreetmap.org/">Karte hergestellt aus OpenStreetMap-Daten</a> | Lizenz: <a rel="license" target="_blank" href="http://opendatacommons.org/licenses/odbl/">Open Database License (ODbL)</a>'
   }),
-  
+  codetitans = L.tileLayer('https://maps.codetitans.pl/tile/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://codetitans.pl">CodeTitans</a> | <a href="https://www.openstreetmap.org/copyright/en">OpenStreetMap</a> contributors',
+  }),
   hiking = L.tileLayer('//tile.waymarkedtrails.org/hiking/{z}/{x}/{y}.png', {
     attribution: waymarkedtrailsAttribution,
   }),
@@ -22,12 +24,12 @@ var osm = L.tileLayer('//tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 module.exports = {
   defaultState: {
-    center: L.latLng(50, 12),
+    center: L.latLng(51.110278, 17.034194),
     zoom: 7,
     waypoints: [],
     language: 'en',
     alternative: 0,
-    layer: osm_de,
+    layer: codetitans,
     service: 1
   },
   services: [{
@@ -46,6 +48,7 @@ module.exports = {
     debug: 'foot',
   }],
   layer: [{
+    'CodeTitans Maps': codetitans,
     'openstreetmap.de': osm_de,
     'openstreetmap.org': osm,
   }],
